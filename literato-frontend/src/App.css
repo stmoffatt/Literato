@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.app {
+  flex-flow: row wrap;
+  overflow: hidden;
+}
+.app-logo {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-holder {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  background-color: #0084b4;
+  color: white;
+  height: 100px;
+  padding: 20px;
+  width: 100%;
+}
+
+p,
+h4 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
+.sidebar {
+  background: #e6ecf0;
+  color: #0084b4;
+  flex-direction: column;
+  width: 180px;
+  position: absolute;
+  top: 100px;
+}
+.extend {
+  background: #e6ecf0;
+  flex-direction: column;
+  width: 180px;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -2;
+}
+
+.main {
+  margin-left: 225px;
+  width: 80%;
+}
+
+.search-bar {
+  margin: 0 auto;
+  width: 63%;
+}
+
+.collection {
+  margin: 0 auto;
+  width: 63%;
+}
+
+.my-books-list {
+  display: flex;
+  flex-flow: row wrap;
+  order: 3;
+}
+
+.my-books-list li {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  height: 350px;
+  margin: 7px;
+  padding: 10px;
+  position: relative;
+  width: 200px;
+}
+
+.flex-item .book-authors {
+  color: #616161;
+}
+
+.sign-out-link {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+.sign-out-link:hover {
+  color: aqua;
+  text-decoration: none;
+}
+
+.flex-item .btn-default {
+  bottom: 10px;
+  position: absolute;
+  width: 90%;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 5px 20px 0 20px;
+}
+
+.sidebar p {
+  margin: 10px 0 0 10px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+}
+
+.sidebar p:hover {
+  text-decoration: none;
+}
+
+.forms {
+  display: flex;
+  flex: 1 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.big-card-login,
+.big-card-signup {
+  width: 40%;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #e6ecf0;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #e6ecf0;
+  padding: 0.8em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/*********************************
+		SEARCH COMPONENTS
+*********************************/
+
+.book {
+  margin: 50px 0;
+}
+
+/*********************************
+		DASHBOARD STYLES
+*********************************/
+
+.overview {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  order: 3;
+  padding: 20px;
+  width: 60%;
+}
+
+.overview .dashboard-box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  height: 300px;
+  min-width: 150px;
+  width: 27%;
+}
+
+.img-holder {
+  display: block;
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.img-holder img {
+  max-height: 250px;
+}
+
+.overview h3 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+.my-books-list img {
+  margin: 0 15px 10px 25px;
+}
+.book-title {
+  text-align: center;
+}
+.book-authors {
+  text-align: center;
+}
+
+/*********************************
+		PENDING
+*********************************/
+
+.trades {
+  display: flex;
+  margin: 20px auto;
+  width: 60%;
+}
+
+.trades h1 {
+  display: block;
+}
+
+.trades ul li {
+  color: black;
+  list-style-type: none;
+}
+
+/***********************************************************
+		MAKE TRADES -- STYLING THE DATABASE SEARCHBAR
+************************************************************/
+
+.database-search-container {
+  display: flex;
+  justify-content: center;
+}
+
+/*********************************
+		MEDIA QUERIES
+*********************************/
+
+@media all and (min-width: 1550px) {
+  #searchBookImg {
+    height: 80%;
+    width: 80%;
+  }
+
+  #pendingTradesImg {
+    height: 80%;
+    width: 80%;
+  }
+}
+
+@media all and (min-width: 901px) {
+  .bm-burger-button {
+    display: none;
+  }
+  .col-md-10 {
+    width: 83.33333333%;
+  }
+}
+@media all and (max-width: 900px) {
+  .sidebar {
+    min-height: 0px;
+    width: 0%;
+    display: none;
+  }
+  .extend {
+    min-height: 0px;
+    width: 0%;
+    display: none;
+  }
+
+  .overview {
+    margin-top: 50px;
+  }
+
+  .trades {
+    margin: 100px auto !important;
+  }
+  .main {
+    margin: auto;
+  }
+  .main h1 {
+    text-align: center;
+  }
+
+  .my-books-list {
+    padding-left: 15%;
+  }
+
+  .col-md-10 {
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .overview {
+    width: 100%;
+  }
+  .overview .dashboard-box {
+    min-width: 185px;
+  }
+}
+@media all and (max-width: 600px) {
+  .main h1 {
+    text-align: center;
+  }
+  .bm-burger-button {
+    position: fixed;
+    width: 30px;
+    height: 20px;
+    left: 10px;
+    top: 10px;
+  }
+  .big-card-signup {
+    width: 90%;
+  }
+  .overview {
+    width: 70%;
+  }
+  .overview .dashboard-box {
+    min-width: 200px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .big-card-login {
+    width: 90%;
+  }
+}
