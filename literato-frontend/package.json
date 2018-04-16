@@ -1,6 +1,9 @@
 {
   "name": "literato-frontend",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.9.0"
+  },
   "private": true,
   "dependencies": {
     "google-books-search": "^0.3.1",

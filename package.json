@@ -1,12 +1,16 @@
 {
   "name": "literato-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.0"
+  },
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest --watch",
     "start": "node literato-backend/index.js",
-    "heroku-postbuild": "cd literato-backend && sequelize db:migrate && cd .. && cd literato-frontend && yarn install && yarn build"
+    "heroku-postbuild":
+      "cd literato-backend && sequelize db:migrate && cd .. && cd literato-frontend && yarn install && yarn build"
   },
   "author": "",
   "license": "ISC",
