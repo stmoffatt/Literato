@@ -35,7 +35,8 @@ export default connect(mapComponentToProps)(
     }
 
     componentWillMount() {
-      fetch(`${this.state.apiUrl}/books`)
+      let self = this
+      fetch(`${self.state.apiUrl}/books`)
         .then(rawResponse => {
           return rawResponse.json()
         })
