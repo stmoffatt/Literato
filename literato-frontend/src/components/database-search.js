@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { Row, Col, FormControl, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
+var apiUrl
+if (process.env.NODE_ENV === 'production') {
+  apiUrl = ''
+} else {
+  apiUrl = 'http://localhost:3000'
+}
+
 const mapComponentToProps = store => {
   return {
     user: store.user.currentUser,
@@ -14,7 +21,7 @@ export default connect(mapComponentToProps)(
     constructor(props) {
       super(props)
       this.state = {
-        apiUrl: 'http://localhost:3000',
+        apiUrl: apiUrl
         searchText: '',
         dbBooks: [],
       }
@@ -32,7 +39,7 @@ export default connect(mapComponentToProps)(
     search() {
       let self = this
       if (self.state.searchText !== '') {
-        fetch('http://localhost:3000/dbsearch/' + self.state.searchText, {
+        fetch( self.state.apiUrl + '/dbsearch/' + self.state.searchText, {
           method: 'GET',
           dataType: 'json',
         })
@@ -48,7 +55,8 @@ export default connect(mapComponentToProps)(
     }
 
     handleTradeRequest(params) {
-      fetch('http://localhost:3000/requests/pending', {
+      let self = this
+      fetch(self.state.apiUrl + '/requests/pending', {
         body: JSON.stringify(params),
         headers: {
           'Content-Type': 'application/json',
