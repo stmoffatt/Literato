@@ -6,11 +6,16 @@ import { Link } from 'react-router-dom'
 
 
 class UserBookList extends Component {
-
+    var apiUrl
+    if (process.env.NODE_ENV === 'production') {
+      apiUrl = ''
+    } else {
+      apiUrl = 'http://localhost:3000'
+    }
     constructor(props) {
         super(props)
         this.state = {
-            apiUrl: 'http://localhost:3000'
+            apiUrl: apiUrl
         }
     }
 
