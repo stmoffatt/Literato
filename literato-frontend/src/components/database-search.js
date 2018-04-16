@@ -39,7 +39,7 @@ export default connect(mapComponentToProps)(
     search() {
       let self = this
       if (self.state.searchText !== '') {
-        fetch(self.state.apiUrl + '/dbsearch/' + self.state.searchText, {
+        fetch(`${self.state.apiUrl}/dbsearch/${self.state.searchText}`, {
           method: 'GET',
           dataType: 'json',
         })
@@ -56,7 +56,7 @@ export default connect(mapComponentToProps)(
 
     handleTradeRequest(params) {
       let self = this
-      fetch(self.state.apiUrl + '/requests/pending', {
+      fetch(`${self.state.apiUrl}/requests/pending`, {
         body: JSON.stringify(params),
         headers: {
           'Content-Type': 'application/json',
