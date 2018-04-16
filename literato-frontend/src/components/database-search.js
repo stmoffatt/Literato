@@ -21,7 +21,7 @@ export default connect(mapComponentToProps)(
     constructor(props) {
       super(props)
       this.state = {
-        apiUrl: apiUrl
+        apiUrl: apiUrl,
         searchText: '',
         dbBooks: [],
       }
@@ -39,7 +39,7 @@ export default connect(mapComponentToProps)(
     search() {
       let self = this
       if (self.state.searchText !== '') {
-        fetch( self.state.apiUrl + '/dbsearch/' + self.state.searchText, {
+        fetch(self.state.apiUrl + '/dbsearch/' + self.state.searchText, {
           method: 'GET',
           dataType: 'json',
         })
