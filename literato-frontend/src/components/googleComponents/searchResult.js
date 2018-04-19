@@ -10,7 +10,7 @@ var apiUrl
 if (process.env.NODE_ENV === 'production') {
   apiUrl = ''
 } else {
-  apiUrl = 'http://localhost:3000'
+  apiUrl = 'http://localhost:3001'
 }
 
 const mapComponentToProps = store => {

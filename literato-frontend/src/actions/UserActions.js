@@ -2,7 +2,7 @@ var apiUrl
 if (process.env.NODE_ENV === 'production') {
   apiUrl = ''
 } else {
-  apiUrl = 'http://localhost:3000'
+  apiUrl = 'http://localhost:3001'
 }
 
 export function viewUserBooks(request) {
@@ -58,21 +58,6 @@ export function handleCheckLogin(apiUrl) {
   }
 }
 
-function loadRequests(url, id) {
-  return dispatch => {
-    fetch(`${url}/requests/${id}`)
-      .then(rawResponse => {
-        return rawResponse.json()
-      })
-      .then(parsedResponse => {
-        dispatch({
-          type: 'FETCHED_REQUESTS',
-          payload: parsedResponse.requests,
-        })
-      })
-  }
-}
-
 function loadBooks(url, id) {
   return dispatch => {
     fetch(`${url}/books/${id}`)
@@ -83,6 +68,45 @@ function loadBooks(url, id) {
         dispatch({
           type: 'LOAD_BOOKS',
           payload: parsedResponse.books,
+        })
+      })
+  }
+}
+
+export function deleteBook(id, userId) {
+  return dispatch => {
+    fetch(`${apiUrl}/books/destroy`, {
+      body: JSON.stringify({ id: id }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    })
+      .then(rawResponse => {
+        return rawResponse.json()
+      })
+      .then(parsedResponse => {
+        dispatch({
+          type: 'DELETE_BOOK',
+        })
+      })
+      .then(parsedResponse => {
+        if (userId) {
+          dispatch(loadBooks(apiUrl, userId))
+        }
+      })
+  }
+}
+function loadRequests(url, id) {
+  return dispatch => {
+    fetch(`${url}/requests/${id}`)
+      .then(rawResponse => {
+        return rawResponse.json()
+      })
+      .then(parsedResponse => {
+        dispatch({
+          type: 'FETCHED_REQUESTS',
+          payload: parsedResponse.requests,
         })
       })
   }

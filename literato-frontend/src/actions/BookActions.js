@@ -2,7 +2,7 @@ var apiUrl
 if (process.env.NODE_ENV === 'production') {
   apiUrl = ''
 } else {
-  apiUrl = 'http://localhost:3000'
+  apiUrl = 'http://localhost:3001'
 }
 
 export function tradeBook(request, bookId) {
@@ -22,26 +22,6 @@ export function tradeBook(request, bookId) {
         dispatch({
           type: 'TRADED_BOOK',
           payload: parsedResponse.request,
-        })
-      })
-  }
-}
-export function deleteBook(id) {
-  return dispatch => {
-    fetch(`${apiUrl}/books/destroy`, {
-      body: JSON.stringify({ id: id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    })
-      .then(rawResponse => {
-        return rawResponse.json()
-      })
-      .then(parsedResponse => {
-        dispatch({
-          type: 'DELETE_BOOK',
-          payload: parsedResponse.books,
         })
       })
   }

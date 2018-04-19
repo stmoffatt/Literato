@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
-import { deleteBook, tradeBook } from '../actions/BookActions'
-import { handleCheckLogin } from '../actions/UserActions'
+import { tradeBook } from '../actions/BookActions'
+import { handleCheckLogin, deleteBook } from '../actions/UserActions'
 import { Link } from 'react-router-dom'
 
 var apiUrl
 if (process.env.NODE_ENV === 'production') {
   apiUrl = ''
 } else {
-  apiUrl = 'http://localhost:3000'
+  apiUrl = 'http://localhost:3001'
 }
 
 class UserBookList extends Component {
@@ -23,8 +23,8 @@ class UserBookList extends Component {
     this.props.dispatch(handleCheckLogin(this.state.apiUrl))
   }
 
-  handleDeleteBook(bookId) {
-    this.props.dispatch(deleteBook(bookId))
+  handleDeleteBook(bookId, userId) {
+    this.props.dispatch(deleteBook(bookId, userId))
   }
 
   handleCompleteTrade(bookId) {
@@ -40,7 +40,10 @@ class UserBookList extends Component {
       )
     } else {
       return (
-        <Button onClick={this.handleDeleteBook.bind(this, userBook.id)} className="delete-book btn btn-default">
+        <Button
+          onClick={this.handleDeleteBook.bind(this, userBook.id, userBook.userId)}
+          className="delete-book btn btn-default"
+        >
           Delete Book
         </Button>
       )
@@ -54,6 +57,7 @@ class UserBookList extends Component {
     } else {
       title = <h1>My Collection</h1>
     }
+
     return (
       <div className="main">
         {title}
