@@ -27,7 +27,6 @@ export default connect(mapComponentToProps)(
     }
 
     render() {
-      console.log(this.props.requests)
       return (
         <div>
           <MobileSidebar />

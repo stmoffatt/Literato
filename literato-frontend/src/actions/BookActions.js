@@ -15,7 +15,6 @@ export function tradeBook(request, bookId) {
       method: 'PUT',
     })
       .then(rawResponse => {
-        console.log(rawResponse)
         return rawResponse.json()
       })
       .then(parsedResponse => {
@@ -57,7 +56,6 @@ export function handleNewBook(params) {
 
 export function search(searchText) {
   return dispatch => {
-    console.log('0')
     if (searchText !== '') {
       fetch('https://www.googleapis.com/books/v1/volumes?q=' + searchText + '&maxResults=40', {
         method: 'GET',

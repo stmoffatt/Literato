@@ -48,7 +48,6 @@ app.get('/dbsearch/:title', (req, res) => {
       { replacements: { title: req.params.title } },
     )
     .then(books => {
-      console.log('this is books: ' + JSON.stringify(books))
       res.json(books[0])
     })
 })
@@ -112,7 +111,6 @@ app.post('/user', (req, res) => {
           }
         })
         .catch(error => {
-          console.log(error)
           res.status(400)
           res.json({ errors: { message: 'User not found' } })
         })
@@ -181,7 +179,6 @@ app.post('/login', (req, res) => {
         })
     } else {
       res.status(400)
-      console.log('validations failed')
       res.json({ errors: { validations: validationErrors.array() } })
     }
   })

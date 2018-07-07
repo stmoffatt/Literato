@@ -35,7 +35,6 @@ export default (currentState = initialState, action) => {
       newState = Object.assign({}, currentState, {
         user1Books: action.payload,
       })
-      console.log('hello' + action.payload)
       break
     }
     case 'ADD_BOOK_ERROR': {
